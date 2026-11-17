@@ -9,8 +9,8 @@ Both examples include **axial deformation and bending**, with three degrees of f
 - [Learning objectives](#learning-objectives)
 - [Teaching materials](#teaching-materials)
 - [Getting started](#getting-started)
-- [Exercise 16-2](#exercise-16-2)
-- [Exercise 16-16](#exercise-16-16)
+- [Exercise A](#exercise-A)
+- [Exercise B](#exercise-B)
 - [Stiffness method workflow](#stiffness-method-workflow)
 - [Units and sign conventions](#units-and-sign-conventions)
 - [Outputs and verification](#outputs-and-verification)
@@ -46,13 +46,13 @@ The paths below define the intended repository organization. Place the teaching 
 | Path | Material |
 | --- | --- |
 | `README.md` | Repository overview and exercise statements. |
-| `docs/MATLAB_Plane_Frame_Step_by_Step_Guide.pdf` | Shared tutorial PDF. |
-| `tutorials/exercise_16_2_plane_frame.m` | Guided tutorial for Exercise 16-2. |
-| `tutorials/exercise_16_16_plane_frame.m` | Guided tutorial for Exercise 16-16. |
-| `exercises/exercise_16_2_before.m` | Exercise 16-2 starter script. |
-| `exercises/exercise_16_2_after.m` | Exercise 16-2 completed solution. |
-| `exercises/exercise_16_16_before.m` | Exercise 16-16 starter script. |
-| `exercises/exercise_16_16_after.m` | Exercise 16-16 completed solution. |
+| `Tutorial.pdf` | Shared tutorial PDF. |
+| `ExcerciseA_solved.mlx` | Guided tutorial for Exercise A. |
+| `ExcerciseB_solved.mlx` | Guided tutorial for Exercise B. |
+| `ExcerciseA_unsolved.mlx` | Exercise A starter script. |
+| `exercise_A_plane_frame.m` | Exercise A completed solution. |
+| `ExcerciseB_unsolved.mlx` | Exercise B starter script. |
+| `exercise_B_plane_frame.m` | Exercise B completed solution. |
 
 The guided tutorials use `%%` sections and explanatory comments in ordinary `.m` files. A native MATLAB Live Script edition, if included, uses the `.mlx` extension.
 
@@ -89,13 +89,16 @@ deformationScale = 0;  % Choose deformation magnification automatically
 
 Set `showMatrices = false` for shorter output. Magnification affects only the plot; displacement tables report the actual calculated motions.
 
-## Exercise 16-2
+## Exercise A
 
 ### Displacement of a cantilever frame
 
 Determine the **horizontal displacement, vertical displacement, and rotation at node 1** of an L-shaped frame.
 
 The horizontal beam extends **3 m** from node 1 to node 2. A **4 m** column connects node 2 to the fixed base at node 3. Node 2 is a rigid corner. At node 1, apply an **18 kN force to the left** and a **27 kN force downward**.
+
+<img width="900" height="450" alt="image" src="https://github.com/user-attachments/assets/e5c33f7b-e492-4010-a7fe-e67e7be46986" />
+
 
 All members have:
 
@@ -155,7 +158,7 @@ $$
 These terms describe column bending, axial shortening, corner rotation, and beam bending. The PDF also derives the translations from strain energy using Castigliano’s theorem.
 
 <details>
-<summary><strong>Reference results for Exercise 16-2</strong></summary>
+<summary><strong>Reference results for Exercise A</strong></summary>
 
 Positive directions are right, up, and counterclockwise.
 
@@ -173,13 +176,16 @@ The corner rotation contributes $-B\theta_2=-23.4\ \mathrm{mm}$ to the vertical 
 
 </details>
 
-## Exercise 16-16
+## Exercise B
 
 ### Reactions of a portal frame
 
 Determine the **horizontal and vertical reactions at supports 1 and 4**.
 
 The portal has two **3 m columns** joined by a **2 m beam**. The bases at nodes 1 and 4 are **pins**. The upper connections at nodes 2 and 3 are **rigid**. A uniform horizontal load of **6 kN/m to the right** acts along the entire left column.
+
+<img width="885" height="443" alt="image" src="https://github.com/user-attachments/assets/4f808fce-8a57-4677-a099-b24718478dca" />
+
 
 All members have:
 
@@ -257,7 +263,7 @@ $$
 The PDF develops the bending-moment products, flexibility integrals, and remaining reactions. The term $B/EA$ retains beam axial flexibility.
 
 <details>
-<summary><strong>Reference results for Exercise 16-16</strong></summary>
+<summary><strong>Reference results for Exercise B</strong></summary>
 
 Positive directions are right, up, and counterclockwise.
 
@@ -363,7 +369,7 @@ Small floating-point residuals near zero are expected. Printed digits help compa
 ## Classroom activities
 
 1. Sketch the likely deformation before running either script.
-2. Explain why the vertical load in Exercise 16-2 also creates horizontal motion.
+2. Explain why the vertical load in Exercise A also creates horizontal motion.
 3. Double $E$ and explain why displacements halve while these reaction values remain unchanged.
 4. Increase $A$ while keeping $I$ fixed and inspect which results change.
 5. Explain why the portal load needs equivalent nodal moments.
